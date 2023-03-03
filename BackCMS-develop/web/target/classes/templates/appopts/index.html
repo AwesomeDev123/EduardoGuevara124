@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'appopts')}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of Options</title>
+</head>
+<body>
+<!--/*@thymesVar id="app" type="spring.sfgapp.entity.AppOpt"*/-->
+<h2>Apps Options </h2>
+
+<table id="appopts" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="optapp : ${appopts}">
+        <td th:text="${opt_imp_guide + ' ' + opt_name}"></td>
+     </tr>
+    <tr>
+        <td><a th:href="@{{id}/edit(id=${id})}" class="btn btn-default">Edit Apps Options</a>
+        <td><a th:href="@{new}" class="btn btn-default">Add New Apps Options Regsitry</a>
+        <td><a th:href="@{{id}/delete(id=${id})}">Delete</a></td>
+    </tr>
+    <tr>
+        <td><a href="#" th:href="@{'/appopts/' + ${id} + '/show'}">View</a></td>
+        <td><a href="#" th:href="@{'/appopts/' + ${id} + '/update'}">Update</a></td>
+        <td><a href="#" th:href="@{'/appopts/' + ${id} + '/delete'}">Delete</a></td>
+    </tr>
+         <td><a href="#" th:href="@{'/appopts/new'}">Add Apps Options</a></td>
+
+    </tbody>
+</table>
+</body>
+</html>

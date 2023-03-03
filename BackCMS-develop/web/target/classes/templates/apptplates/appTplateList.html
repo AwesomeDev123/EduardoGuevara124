@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'apptplates')}">
+
+  <body>
+
+    <h2>App Tplate</h2>
+
+    <table id="vets" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Last Name</th>
+            <th style="width: 200px;">eMail Address</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="apptplate : ${selections}">
+              <td>
+                  <a th:href="@{/apptplates/__${apptplate.id}__}" th:text="${apptplate.apptplate}"/></a>
+              </td>
+              <td th:text="${apptplate.apptplate}"/></td>
+              <td th:text="${apptplate.apptplate}"/>
+              <td><a href="#" th:href="@{'/apptplates/' + ${apptplate.id} + '/show'}">View</a></td>
+              <td><a href="#" th:href="@{'/apptplates/' + ${apptplate.id} + '/update'}">Update</a></td>
+              <td><a href="#" th:href="@{'/apptplates/' + ${apptplate.id} + '/delete'}">Delete</a></td>
+          </tr>
+              <td><a href="#" th:href="@{'/apptplates/new'}">Add</a></td>
+        </tbody>
+    </table>
+
+  </body>
+</html>

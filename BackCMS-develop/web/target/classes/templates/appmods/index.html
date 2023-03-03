@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'apppmods')}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of App Modules</title>
+</head>
+<body>
+<!--/*@thymesVar id="apppmod" type="spring.sfgapp.entity.AppMod"*/-->
+<h2>App Modules</h2>
+
+<table id="apppmods" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="apppmod : ${apppmods}">
+        <td th:text="${apppmod.appModName + ' ' + apppmod.appModName}"></td>
+     </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'apppmods')}">
+
+<body>
+
+  <h2>App Modules</h2>
+  <form th:object="${apppmod}" class="form-horizontal" id="add-apppmod-form" method="post">
+
+
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('First Name', 'appModName', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Last Name', 'appModName', 'text')}" />
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('Address', 'address', 'text')}" />-->
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('City', 'city', 'text')}" />-->
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('Telephone', 'telephone', 'text')}" />-->
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${apppmod['new']} ? 'Add App Modules' : 'Update App Modules'"
+          class="btn btn-default" type="submit" th:text="${text}">Add
+          App Modules</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'appimgs')}">
+
+<body>
+
+  <h2>Images</h2>
+  <form th:object="${appimg}" class="form-horizontal" id="add-appimg-form" method="post">
+
+
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('First Name', 'imgName', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Last Name', 'imgName', 'text')}" />
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('Address', 'address', 'text')}" />-->
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('City', 'city', 'text')}" />-->
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('Telephone', 'telephone', 'text')}" />-->
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${appimg['new']} ? 'Add Images' : 'Update Images'"
+          class="btn btn-default" type="submit" th:text="${text}">Add
+          Images</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

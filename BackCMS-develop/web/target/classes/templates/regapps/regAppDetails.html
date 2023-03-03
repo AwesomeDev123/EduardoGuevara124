@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'regapps')}">
+
+  <body>
+  
+
+    <h2>App Information</h2>
+
+
+    <table class="table table-striped" th:object="${regapp}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{appname + ' ' + appstatus}"></b></td>
+      </tr>
+      <tr>
+        <th>staFrom Name</th>
+        <td th:text="*{' ' + stafrom}" /></td>
+      </tr>
+      <tr>
+        <th>staTo Name</th>
+        <td th:text="*{' ' + stato}" /></td>
+      </tr>
+      <tr>
+        <td><a th:href="@{{id}/edit(id=${regapp.id})}" class="btn btn-default">Edit User</a>
+        <td><a th:href="@{new}" class="btn btn-default">Add New Regsitry</a>
+        <td><a th:href="@{{id}/delete(id=${regapp.id})}">Delete</a></td>
+      </tr>
+      <tr>
+        <td><a href="#" th:href="@{'/users/' + ${regapp.id} + '/show'}">View</a></td>
+        <td><a href="#" th:href="@{'/users/' + ${regapp.id} + '/update'}">Update</a></td>
+        <td><a href="#" th:href="@{'/users/' + ${regapp.id} + '/delete'}">Delete</a></td>
+      </tr>
+    </table>
+
+  </body>
+
+</html>

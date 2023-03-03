@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'users')}">
+
+<body>
+
+  <h2>User add/update</h2>
+  <form th:object="${user}" class="form-horizontal" id="add-user-form" method="post">
+
+
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('First Name', 'firstName', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Last Name', 'lastName', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Email', 'emailPersonal', 'text')}" />
+    </div>
+ 
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${user['new']} ? 'Add User' : 'Update User'"
+          class="btn btn-default" type="submit" th:text="${text}"></button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

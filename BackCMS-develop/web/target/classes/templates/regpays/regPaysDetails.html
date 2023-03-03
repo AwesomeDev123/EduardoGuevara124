@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'regpays')}">
+  <body>
+    <h2>Reg Pay Information</h2>
+    <table class="table table-striped" th:object="${regpay}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{regPayDoc + ' ' + regPayDoc}"></b></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + regPayDoc}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + regPayDoc}" /></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + regPayDoc}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + regPayDoc}" /></td>
+      </tr>
+            <tr>
+              <td><a th:href="@{{id}/edit(id=${regpay.id})}" class="btn btn-default">Edit Reg Pay</a>
+              <td><a th:href="@{new}" class="btn btn-default">Add New Regsitry</a>
+              <td><a th:href="@{{id}/delete(id=${regpay.id})}">Delete</a></td>
+            </tr>
+      <tr>
+      <td><a href="#" th:href="@{'/regpays/' + ${regpay.id} + '/show'}">View</a></td>
+      <td><a href="#" th:href="@{'/regpays/' + ${regpay.id} + '/update'}">Update</a></td>
+      <td><a href="#" th:href="@{'/regpays/' + ${regpay.id} + '/delete'}">Delete</a></td>
+      </tr>
+    </table>
+<!--    <h2>Reg Pay Registry</h2>-->
+<!--    <tr>-->
+<!--      <span th:if="${regpay?.regUserHashSet?.size() == 0}">-->
+<!--        <a href="#" th:href="@{'/regusers/' + ${regpay.id} + '/new'}">New RegUser</a>-->
+<!--      </span>-->
+<!--      <span th:unless="${regpay?.regUserHashSet?.size() == 0}" >-->
+
+<!--      </span>-->
+<!--      <tr th:each="registres : ${regpay.regUserHashSet}">-->
+<!--        <td th:text="${registres.idApp}">334</td>-->
+<!--        <td th:text="${registres.idCountry} + ' ' + ${registres.idUser} + ' ' + ${registres.userStatus} + '/show'">Tasty Goodnees 3</td>-->
+<!--      </tr>-->
+<!--    </tr>-->
+
+
+  </body>
+
+</html>

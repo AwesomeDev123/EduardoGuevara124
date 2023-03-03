@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'apptxts')}">
+
+  <body>
+
+    <h2>App Txt</h2>
+
+    <table id="apptxts" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Last Name</th>
+            <th style="width: 200px;">eMail Address</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="apptxt : ${selections}">
+              <td>
+                  <a th:href="@{/apptxts/__${apptxt.id}__}" th:text="${apptxt.app_txt_order}"/></a>
+              </td>
+              <td th:text="${apptxt.app_txt_title}"/></td>
+              <td th:text="${apptxt.txtSbTitle}"/>
+              <td><a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/show'}">View</a></td>
+              <td><a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/update'}">Update</a></td>
+              <td><a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/delete'}">Delete</a></td>
+          </tr>
+              <td><a href="#" th:href="@{'/apptxts/new'}">Add</a></td>
+        </tbody>
+    </table>
+
+  </body>
+</html>

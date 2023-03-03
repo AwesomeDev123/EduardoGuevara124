@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'regapps')}">
+
+<body>
+
+  <h2>Find Apps</h2>
+
+  <form th:object="${regapp}" th:action="@{/regapps}" method="get"
+    class="form-horizontal" id="search-regapp-form">
+    <div class="form-group">
+      <div class="control-group" id="appName">
+        <label class="col-sm-2 control-label">appName name </label>
+        <div class="col-sm-10">
+          <input class="form-control" th:field="*{appName}" size="30"
+            maxlength="80" /> <span class="help-inline"><div
+              th:if="${#fields.hasAnyErrors()}">
+              <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
+            </div></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Find
+          App</button>
+      </div>
+    </div>
+
+  </form>
+
+  <br />
+  <a class="btn btn-default" th:href="@{/regapps/new}">Add App</a>
+
+</body>
+</html>

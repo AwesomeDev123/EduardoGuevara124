@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'apptplates')}">
+  <body>
+    <h2>Tplates Information</h2>
+    <table class="table table-striped" th:object="${apptplate}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{appTplate + ' ' + appTplate}"></b></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + appTplate}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + appTplate}" /></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + appTplate}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + appTplate}" /></td>
+      </tr>
+            <tr>
+              <td><a th:href="@{{id}/edit(id=${apptplate.id})}" class="btn btn-default">Edit Tplates</a>
+              <td><a th:href="@{new}" class="btn btn-default">Add New Regsitry</a>
+              <td><a th:href="@{{id}/delete(id=${apptplate.id})}">Delete</a></td>
+            </tr>
+      <tr>
+      <td><a href="#" th:href="@{'/apptplates/' + ${apptplate.id} + '/show'}">View</a></td>
+      <td><a href="#" th:href="@{'/apptplates/' + ${apptplate.id} + '/update'}">Update</a></td>
+      <td><a href="#" th:href="@{'/apptplates/' + ${apptplate.id} + '/delete'}">Delete</a></td>
+      </tr>
+    </table>
+<!--    <h2>Tplates Registry</h2>-->
+<!--    <tr>-->
+<!--      <span th:if="${apptplate?.regUserHashSet?.size() == 0}">-->
+<!--        <a href="#" th:href="@{'/regusers/' + ${apptplate.id} + '/new'}">New RegUser</a>-->
+<!--      </span>-->
+<!--      <span th:unless="${apptplate?.regUserHashSet?.size() == 0}" >-->
+
+<!--      </span>-->
+<!--      <tr th:each="registres : ${apptplate.regUserHashSet}">-->
+<!--        <td th:text="${registres.idApp}">334</td>-->
+<!--        <td th:text="${registres.idCountry} + ' ' + ${registres.idUser} + ' ' + ${registres.userStatus} + '/show'">Tasty Goodnees 3</td>-->
+<!--      </tr>-->
+<!--    </tr>-->
+
+
+  </body>
+
+</html>

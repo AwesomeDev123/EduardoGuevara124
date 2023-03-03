@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'apptxts')}">
+
+  <body>
+  
+
+    <h2>App Txt Information</h2>
+
+
+    <table class="table table-striped" th:object="${apptxt}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{appTxtName + ' ' + appTxtName}"></b></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + appTxtName}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + appTxtName}" /></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + appTxtName}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + appTxtName}" /></td>
+      </tr>
+            <tr>
+              <td><a th:href="@{{id}/edit(id=${apptxt.id})}" class="btn btn-default">Edit App Txt</a>
+              <td><a th:href="@{new}" class="btn btn-default">Add New Regsitry</a>
+              <td><a th:href="@{{id}/delete(id=${apptxt.id})}">Delete</a></td>
+            </tr>
+      <tr>
+      <td><a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/show'}">View</a></td>
+      <td><a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/update'}">Update</a></td>
+      <td><a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/delete'}">Delete</a></td>
+      </tr>
+    </table>
+
+    <h2>App Txt Registry</h2>
+
+
+    <tr>
+      <span th:if="${apptxt?.regAppTxtHashSet?.size() == 0}">
+        <a href="#" th:href="@{'/apptxts/' + ${apptxt.id} + '/new'}">New AppTxt</a>
+      </span>
+      <span th:unless="${apptxt?.regAppTxtHashSet?.size() == 0}" >
+
+      </span>
+      <tr th:each="registres : ${apptxt.regAppTxtHashSet}">
+        <td th:text="${registres.id}">334</td>
+        <td th:text="${registres.id} + ' ' + ${registres.id} + ' ' + ${registres.id} + '/show'">Tasty Goodnees 3</td>
+      </tr>
+    </tr>
+
+
+  </body>
+
+</html>

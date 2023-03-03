@@ -1,0 +1,193 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <table class="table">
+                            <tbody>
+                            <div class="main-content">
+                                <div class="card-header card-header-danger">
+                                    <h4 class="card-title">Opciones</h4>
+                                    <p class="card-category"> Registro de Opciones de Aplicaciones</p>
+                                    <p class="card-category"> Opciones de Aplicaciones # {{appopt.id}} </p>
+                                </div>
+                            </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <!-- <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" #appoptForm="ngForm" id="appopt" name="appopt" >  -->
+            <!-- https://ng-bootstrap.github.io/#/components/modal/examples -->
+            <form method="POST" (ngSubmit)="onSubmit()" enctype="multipart/form-data" modelAttribute="appopt">
+
+                <div class="row">
+                    <div class="col">
+                        <label for="id">Id Opciones</label>
+                        <input type="text" class="form-control" id="id" name="id"
+                               placeholder="Enter your id" required #id="ngModel" [(ngModel)]="appopt.id"
+                               disabled="true">
+                    </div>
+                    <div class="col">
+                        <label for="optImpGuide">optImpGuide</label>
+                        <input type="text" class="form-control" id="optImpGuide" name="optImpGuide"
+                               placeholder="Enter optImpGuide" required #id="ngModel" [(ngModel)]="appopt.optImpGuide"
+                        >
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="optName">optName</label>
+                        <input type="text" class="form-control" id="optName" name="optName"
+                               placeholder="Enter your optName" required #optName="ngModel"
+                               [(ngModel)]="appopt.optName">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="optDsc">optDsc</label>
+                        <input type="text" class="form-control" id="optDsc" name="optDsc"
+                               placeholder="Enter your optDsc" required #optDsc="ngModel" [(ngModel)]="appopt.optDsc">
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="optValFrom">optValFrom</label>
+                            <input type="text" class="form-control" id="optValFrom" name="optValFromPAy"
+                                   placeholder="Enter your optValFrom" required #optValFrom="ngModel"
+                                   [(ngModel)]="appopt.optValFrom">
+                        </div>
+
+                        <div class="col">
+                            <label for="optValTo">optValTo</label>
+                            <input type="text" class="form-control" id="optValTo" name="optValToPAy"
+                                   placeholder="Enter your optValTo" required #optValTo="ngModel"
+                                   [(ngModel)]="appopt.optValTo">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="optTitle">optTitle</label>
+                            <input type="text" class="form-control" id="optTitle" name="optTitle"
+                                   placeholder="Enter your optTitle" required #optTitle="ngModel"
+                                   [(ngModel)]="appopt.optTitle">
+                        </div>
+
+                        <div class="col">
+                            <label for="optSubTitle">optSubTitle</label>
+                            <input type="text" class="form-control" id="optSubTitle" name="optSubTitlePAy"
+                                   placeholder="Enter your optSubTitle" required #optSubTitle1="ngModel"
+                                   [(ngModel)]="appopt.optSubTitle">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="optTitleImg">optTitleImg</label>
+                            <input type="text" class="form-control" id="optTitleImg" name="optTitleImg"
+                                   placeholder="Enter your optTitleImg" required #optTitle="ngModel"
+                                   [(ngModel)]="appopt.optTitleImg">
+
+                        </div>
+
+                        <div class="col">
+                            <label for="optSrcImg">optSrcImg</label>
+                            <input type="file" (change)="catchSrcImg($event)" accept="image/*"
+                                   class="form-control" id="optSrcImg" name="optSrcImg"
+                                   placeholder="Enter your optSrcImg" required
+                            >
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col" *ngIf="imgSrc" width="1px" height="2px">
+                            <button class="clear-image" type="button" (click)="clearSrcImg()">Clear</button>
+                            <img [src]="imgSrc" alt="">
+                        </div>
+                        <div class="col" *ngIf="imgSrc">
+                            <button type="button" class="button" [disabled]="loading" (click)="upLoadImage()">
+                                {{(loading) ? 'Cargando.....' : 'Subir Archivo'}}
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="optTItleIcon">optTitleIcon</label>
+                            <input type="text" class="form-control" id="optTitleIcon" name="optTitleIcon"
+                                   placeholder="Enter your optTitleIcon" required #optTitle="ngModel"
+                                   [(ngModel)]="appopt.optTitleIcon">
+                        </div>
+                        <div class="col">
+                            <label for="optSrcIcon">optSrcIcon</label>
+                            <input type="file" (change)="catchSrcIco($event)" accept="image/*"
+                                   class="form-control" id="optSrcIcon" name="optSrcIcon"
+                                   placeholder="Enter your optSrcIcon" required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- <app-file-upload formControlName="image" [progress]="progress"></app-file-upload> -->
+
+                    <div class="row">
+                        <div class="col" *ngIf="icoSrc">
+                            <button class="clear-image" type="button" (click)="clearSrcIco()">Clear</button>
+                            <img [src]="icoSrc" alt="">
+                        </div>
+                        <div class="col" size="100px" *ngIf="icoSrc">
+                            <button type="button" class="button" [disabled]="icoSrc" (click)="upLoadIco()">
+                                {{(icoSrc) ? 'Cargando.....' : 'Subir Archivo'}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <Br>
+                <div id="Botonera" class="container-fluid">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <table class="table">
+                                    <button type="submit" class="btn btn-primary btn-rounded">Actualizar</button>
+                                    <a type="button" class="btn btn-danger btn-rounded"
+                                       (click)="gotoAppOptDelete(appopt.id)">Delete</a>
+                                    <a type="button" class="btn btn-success btn-rounded"
+                                       (click)="gotoAppOptSave(appopt.id)">Back</a>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+
+<!--      <div class="col" >
+        <label for="name">optSrcImg</label>
+           <input type="file" (change)="catchSrcImg($event,'appopt.optSrcImg')"
+        class="form-control"  id="optSrcImg" name="optSrcImg"
+        placeholder="Enter your optSrcImg" required #optSrcImg="ngModel" [(ngModel)]="appopt.optSrcImg" >
+        <input id="optSrcImg" name="optSrcImg"
+        type=file [(ngModel)]="appopt.optSrcImg" ObserveFiles>
+
+      </div>-->

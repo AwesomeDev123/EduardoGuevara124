@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'regpays')}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of Reg Pays</title>
+</head>
+<body>
+<!--/*@thymesVar id="regpay" type="spring.sfgapp.entity.User"*/-->
+<h2>Reg Pays</h2>
+
+<table id="regpays" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="regpay : ${regPayDoc}">
+        <td th:text="${regpay.regPayDoc + ' ' + regpay.regPayDoc}"></td>
+     </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">APLICACIONES.</h4>
+                    <p class="card-category"> Registro de Aplicaciones</p>
+                    <p class="card-category"> Aplicaciones # {{regApp.id}} </p>
+                    </div>
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>
+    </div>  
+  
+    <div class="card-body">   
+      <form (ngSubmit)="onSubmit()" #regappForm="ngForm" id="regApp" name="regApp"> 
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">Id App</label>
+            <input type="text" class="form-control"  id="idApp" name="idApp" 
+            placeholder="Enter your idApp" required #idApp="ngModel" [(ngModel)]="regApp.id"
+             > 
+          </div> 
+        <div class="col">
+          <label for="IdApp">Application Name</label>
+            <select class="form-control" id="idApp" name="idApp"  [(ngModel)]="regApp.appName" >
+              <option [ngValue]="null">Select one...</option>
+              <option *ngFor="let appName of eApplications | keyvalue" [ngValue]="appName.value">{{appName.value}}</option>
+            </select>
+          </div>
+        </div>
+
+
+  
+<!--         <div class="row">
+          <div class="col">
+          <label for="name">regAppName</label>
+          <input type="text" class="form-control"  id="regAppName" name="regAppName" 
+          placeholder="Enter your regAppName" required #regAppName="ngModel" [(ngModel)]="regapp.regAppName" >
+        </div> -->
+  
+     
+        <div class="row">
+                <div class="col">
+                <label for="name">appStaFrom</label>
+                <input type="text" class="form-control"  id="appStaFrom" name="appStaFrom" 
+                placeholder="mm-dd-yyyy" required #appStaFrom="ngModel" [(ngModel)]="regApp.appStaFrom" >
+              </div>
+  
+              <div class="col">
+                <label for="name">appStaTo</label>
+                <input type="text" class="form-control"  id="appStaTo" name="appStaTo" 
+                placeholder="mm-dd-yyyy"  required #appStaTo="ngModel" [(ngModel)]="regApp.appStaTo" >
+              </div>
+
+                <div class="col">
+                <label for="IdApp">Estatus</label>
+                  <select class="form-control" id="appStatus" name="appStatus"  [(ngModel)]="regApp.appStatus" >
+                    <option [ngValue]="null">Select one...</option>
+                    <option *ngFor="let appStatus of enumappStatus | keyvalue" [ngValue]="appStatus.value">{{appStatus.value}}</option>
+                  </select>
+              </div>
+        </div>
+      <Br>
+      <div id="Botonera" class="container-fluid">
+        <div class="row">        
+        <div class="card">
+            <div class="card-header card-header-danger">
+              <table class="table"  >
+          <!-- <button type="submit" [disabled]="!regappForm.form.valid" class="btn btn-info">Actualizar</button> -->
+          <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+          <a type="button" class="btn btn-danger btn-rounded" (click)="gotoRegAppDelete(regApp.id)">Delete</a>
+          <!-- <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegAppList(regapp.id)">Back</a>  -->
+          <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegAppList()">Back</a>
+        </table>    
+      </div>    
+      </div>
+      </div>
+      </div> 
+          
+      </form>
+  
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  </div>

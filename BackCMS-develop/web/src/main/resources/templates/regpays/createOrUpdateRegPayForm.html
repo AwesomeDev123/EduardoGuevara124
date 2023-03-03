@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'regpays')}">
+
+<body>
+
+  <h2>Reg Pay</h2>
+  <form th:object="${regpay}" class="form-horizontal" id="add-regpay-form" method="post">
+
+
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('regPay Doc', 'regPayDoc', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('regPay Doc', 'regPayDoc', 'text')}" />
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('Address', 'address', 'text')}" />-->
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('City', 'city', 'text')}" />-->
+<!--      <input-->
+<!--        th:replace="~{fragments/inputField :: input ('Telephone', 'telephone', 'text')}" />-->
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${regpay['new']} ? 'Add Reg Pay' : 'Update Reg Pay'"
+          class="btn btn-default" type="submit" th:text="${text}">Add
+          Reg Pay</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

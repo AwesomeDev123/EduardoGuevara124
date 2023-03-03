@@ -1,0 +1,92 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">PAGOS.</h4>
+                    <p class="card-category"> Registro de Pagos</p>
+                    <p class="card-category"> Pagos de usuario # {{regPay.id}} </p>
+                    </div>
+                    
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>   
+    </div>  
+
+    <div class="card-body">     
+      <form (ngSubmit)="onSubmit()" #regpayForm="ngForm" id="regpay" name="regpay">  
+
+        <div class="row">
+            <div class="col">
+                <label for="name">Pago valido desde:</label>
+                <input type="text" class="form-control"  id="regPayFrom" name="regPayFrom" 
+                placeholder="mm-dd-yyyy" required #regPayFrom="ngModel" [(ngModel)]="regPay.payFrom" >
+            </div>  
+            <div class="col">
+                <label for="name">Pago valido hasta:</label>
+                <input type="text" class="form-control"  id="regPayTo" name="regPayTo" 
+                placeholder="mm-dd-yyyy" required #regPayFrom="ngModel" [(ngModel)]="regPay.payTo" >
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <label for="name">regPayDoc</label>
+                <input type="text" class="form-control"  id="regPayDoc" name="regPayDoc" 
+                placeholder="Enter your regPayDoc" required #regPayDoc="ngModel" [(ngModel)]="regPay.payDoc" >
+            </div>
+            <div class="col">
+                <label for="name">regPayDocDue</label>
+                <input type="text" class="form-control"  id="regPayDocDue" name="regPayDocDue" 
+                placeholder="mm-dd-yyyy" required #regPayDocDue="ngModel" [(ngModel)]="regPay.docDue" >
+            </div>
+        </div>
+  
+        <div class="row">
+            <div class="col">
+                <label for="name">regPayDocNumber</label>
+                <input type="text" class="form-control"  id="regPayDocNumber" name="regPayDocNumber" 
+                placeholder="Enter your regPayDocNumber" required #regPayDocNumber="ngModel" [(ngModel)]="regPay.docNumber" >
+            </div>
+                <div class="col">
+                <label for="name">regPayAmount</label>
+                <input type="number" class="form-control"  id="regPayAmount" name="regPayAmount" 
+                placeholder="999,000.00" required #regPayAmount="ngModel" [(ngModel)]="regPay.payAmount" >
+            </div>
+        </div>
+
+        <Br>
+
+        <div id="Botonera" class="container-fluid">
+            <div class="row">        
+            <div class="card">
+            <div class="card-header card-header-danger">
+            <table class="table"  >
+              <!-- <button type="submit" [disabled]="!regpayForm.form.valid" class="btn btn-info">Actualizar</button> -->
+              <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+              <!-- <a type="button" class="btn btn-secondary btn-rounded" (click)="gotoRegUserPay(regpay.id,regpay.idRegPay)">Pagos</a> -->
+              <a type="button" class="btn btn-danger btn-rounded" (click)="gotoRegPayDelete(regPay.id)">Delete</a>
+              <!-- <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegUserList(regpay.id)">Back</a>  -->
+              <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegPayList()">Back</a>
+            </table>    
+            </div>    
+            </div>
+            </div>
+        </div>    
+
+      </form>
+
+    </div>
+        <div class="container">
+        <router-outlet></router-outlet>
+        </div>
+</div>
+</div>

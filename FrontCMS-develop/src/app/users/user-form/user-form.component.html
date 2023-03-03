@@ -1,0 +1,76 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">        
+       <div class="col-md-12">
+      <div class="card">
+          <div class="card-header card-header-danger">
+              <table class="table"  >
+              <tbody>
+              <div class="main-content">
+                  <div class="card-header card-header-danger" >
+                  <h4 class="card-title">USUARIOS.</h4>
+                  <p class="card-category"> Registro de Usuarios</p></div>
+              </div> 
+          </tbody>
+      </table>    
+      </div>    
+      </div>
+      </div>
+  </div> 
+  <div class="card-body">
+
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" id="user" name="user"> 
+      <input type="hidden" id="id" name="id" [(ngModel)]="user.id" >
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName"   placeholder="Enter your name"
+        required #firstName="ngModel" [(ngModel)]="user.firstName" >
+        <small id="firstNamelHelp" class="form-text text-muted">First name is require.</small>
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName"   placeholder="Enter your lastName"
+        required #lastName="ngModel" [(ngModel)]="user.lastName" >
+        <small id="lastNameHelp" class="form-text text-muted">Last name is require.</small>
+      </div>
+    
+      <div class="form-group">
+        <label for="name">Phone</label>
+        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"   placeholder="Enter your phone number"
+        [(ngModel)]="user.phoneNumber" >
+        <small id="phonelHelp" class="form-text text-muted">Wasapp phone number.</small>
+      </div>
+    
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="emailAddress"  name="emailAddress"  placeholder="Enter your email address"
+        required #emailAddress="ngModel" [(ngModel)]="user.emailAddress"   >    
+        <small id="phonelHelp" class="form-text text-muted">Valid email is mandadory</small>
+      </div>
+      <div></div>
+      <hr> 
+      <div id="Botonera" class="container-fluid">
+        <div class="row">        
+        <div class="card">
+            <div class="card-header card-header-danger">
+              <table class="table"  >
+                    <button type="submit"  class="btn btn-primary btn-rounded" 
+                    [disabled]="!userForm.form.valid">Actualizar</button>
+                    <a type="button" class="btn btn-secondary btn-rounded" (click)="gotoRegUser(user.id)">Registro</a>
+                    <a type="button" class="btn btn-danger btn-rounded" (click)="gotoUserDelete(user.id)">Delete</a>
+                    <a type="button" class="btn btn-success btn-rounded" (click)="gotoUserList()">Back</a>                
+              </table>    
+            </div>    
+        </div>
+        </div>
+      </div> 
+
+    </form>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

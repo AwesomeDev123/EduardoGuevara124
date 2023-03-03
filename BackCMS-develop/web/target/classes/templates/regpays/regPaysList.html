@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'regpays')}">
+
+  <body>
+
+    <h2>Reg Pays</h2>
+
+    <table id="regpays" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Last Name</th>
+            <th style="width: 200px;">eMail Address</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="regpay : ${selections}">
+              <td>
+                  <a th:href="@{/regpays/__${regpay.id}__}" th:text="${regpay.regPayDoc}"/></a>
+              </td>
+              <td th:text="${regpay.regPayDoc}"/></td>
+              <td th:text="${regpay.regPayDoc}"/>
+              <td><a href="#" th:href="@{'/regpays/' + ${regpay.id} + '/show'}">View</a></td>
+              <td><a href="#" th:href="@{'/regpays/' + ${regpay.id} + '/update'}">Update</a></td>
+              <td><a href="#" th:href="@{'/regpays/' + ${regpay.id} + '/delete'}">Delete</a></td>
+          </tr>
+              <td><a href="#" th:href="@{'/regpays/new'}">Add</a></td>
+        </tbody>
+    </table>
+
+  </body>
+</html>

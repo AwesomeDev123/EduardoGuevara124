@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'appimgs')}">
+
+  <body>
+  
+
+    <h2>Image Information</h2>
+
+
+    <table class="table table-striped" th:object="${appimg}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{firstName + ' ' + imgName}"></b></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + imgName}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + imgName}" /></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td th:text="*{' ' + imgName}" /></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td th:text="*{' ' + imgName}" /></td>
+      </tr>
+            <tr>
+              <td><a th:href="@{{id}/edit(id=${appimg.id})}" class="btn btn-default">Edit Image</a>
+              <td><a th:href="@{new}" class="btn btn-default">Add New Image Regsitry</a>
+              <td><a th:href="@{{id}/delete(id=${appimg.id})}">Delete</a></td>
+            </tr>
+      <tr>
+      <td><a href="#" th:href="@{'/appimgs/' + ${appimg.id} + '/show'}">View</a></td>
+      <td><a href="#" th:href="@{'/appimgs/' + ${appimg.id} + '/update'}">Update</a></td>
+      <td><a href="#" th:href="@{'/appimgs/' + ${appimg.id} + '/delete'}">Delete</a></td>
+      </tr>
+    </table>
+
+    <h2>Image Registry</h2>
+
+
+    <tr>
+      <span th:if="${appimg?.regUserHashSet?.size() == 0}">
+        <a href="#" th:href="@{'/regusers/' + ${appimg.id} + '/new'}">New RegUser</a>
+      </span>
+      <span th:unless="${appimg?.regUserHashSet?.size() == 0}" >
+
+      </span>
+      <tr th:each="registres : ${appimg.regUserHashSet}">
+        <td th:text="${registres.idApp}">334</td>
+        <td th:text="${registres.idCountry} + ' ' + ${registres.idUser} + ' ' + ${registres.userStatus} + '/show'">Tasty Goodnees 3</td>
+      </tr>
+    </tr>
+
+
+  </body>
+
+</html>

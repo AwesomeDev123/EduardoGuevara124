@@ -1,0 +1,107 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">TEXTO DE APLICACIONES</h4>
+                    <p class="card-category"> Registro de Texto de Aplicaciones</p>
+                    <p class="card-category"> Texto de Aplicaciones # {{apptxt.id}} </p>
+                    </div>
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>
+        </div>  
+  
+    <div class="card-body">   
+      <form (ngSubmit)="onSubmit()" #apptxtForm="ngForm" id="apptxt" name="apptxt"> 
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">Id Texto</label>
+            <input type="text" class="form-control"  id="id" name="id" 
+            placeholder="Enter your id" required #id="ngModel" [(ngModel)]="apptxt.id"
+            disabled="true" > 
+          </div> 
+          <div class="col">
+            <label for="name">appTxtName</label>
+            <input type="text" class="form-control"  id="appTxtName" name="appTxtName" 
+            placeholder="Enter appTxtName" required #id="ngModel" [(ngModel)]="apptxt.appTxtName"
+             > 
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col">
+          <label for="name">appTxtTitle</label>
+          <input type="text" class="form-control"  id="appTxtTitle" name="appTxtTitle" 
+          placeholder="Enter your appTxtTitle" required #appTxtTitle="ngModel" [(ngModel)]="apptxt.appTxtTitle" >
+          </div>
+        </div>
+  
+          <div class="col">
+          <label for="name">apptxtSbTitle</label>
+          <input type="text" class="form-control"  id="apptxtSbTitle" name="apptxtSbTitle" 
+          placeholder="Enter your apptxtSbTitle" required #apptxtSbTitle="ngModel" [(ngModel)]="apptxt.apptxtSbTitle" >
+        </div>
+  
+        <div class="row">
+          <div class="col">
+          <label for="name">appTxtMsg</label>
+          <input type="text" class="form-control"  id="appTxtMsg" name="appTxtMsgPAy" 
+          placeholder="Enter your appTxtMsg" required #appTxtMsg="ngModel" [(ngModel)]="apptxt.appTxtMsg" >
+        </div>
+        <div class="col">
+          <label for="name">appTxtSbMsg</label>
+          <input type="text" class="form-control"  id="appTxtSbMsg" name="appTxtSbMsgPAy" 
+          placeholder="Enter your appTxtSbMsg" required #appTxtSbMsg="ngModel" [(ngModel)]="apptxt.appTxtSbMsg" >
+          </div>
+        </div>
+     
+        <div class="row">
+        <div class="col">
+          <label for="name">appTxtFrom</label>
+          <input type="text" class="form-control"  id="appTxtFrom" name="appTxtFromPAy" 
+          placeholder="Enter your appTxtFrom" required #appTxtFrom="ngModel" [(ngModel)]="apptxt.appTxtFrom" >
+          </div>
+  
+        <div class="col">
+          <label for="name">appTxtTo</label>
+          <input type="text" class="form-control"  id="appTxtTo" name="appTxtToPAy" 
+          placeholder="Enter your appTxtTo" required #appTxtTo="ngModel" [(ngModel)]="apptxt.appTxtTo" >
+          </div>
+        </div>
+      <Br>
+      <div id="Botonera" class="container-fluid">
+        <div class="row">        
+        <div class="card">
+            <div class="card-header card-header-danger">
+              <table class="table"  >
+          <!-- <button type="submit" [disabled]="!apptxtForm.form.valid" class="btn btn-info">Actualizar</button> -->
+          <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+          <!-- <a type="button" class="btn btn-secondary btn-rounded" (click)="gotoRegUserPay(apptxt.id,apptxt.id)">Pagos</a> -->
+          <a type="button" class="btn btn-danger btn-rounded" (click)="gotoAppTxtDelete(apptxt.id)">Delete</a>
+          <!-- <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegUserList(apptxt.id)">Back</a>  -->
+          <a type="button" class="btn btn-success btn-rounded" (click)="gotoAppTxtSave(apptxt.id)">Back</a>
+        </table>    
+      </div>    
+      </div>
+      </div>
+      </div> 
+          
+      </form>
+  
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>
+  

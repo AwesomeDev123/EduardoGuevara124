@@ -1,0 +1,123 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">Opciones AppMod</h4>
+                    <p class="card-category"> Registro de Opciones de AppMod</p>
+                    <p class="card-category"> Opciones de AppMod # {{appmod.id}} </p>
+                    </div>
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>
+        </div>  
+  
+    <div class="card-body">   
+      <form (ngSubmit)="onSubmit()" #appmodForm="ngForm" id="appmod" name="appmod" enctype="multipart/form-data"> 
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">Id Opciones</label>
+            <input type="text" class="form-control"  id="id" name="id" 
+            placeholder="Enter your id" required #id="ngModel" [(ngModel)]="appmod.id"
+            disabled="true" > 
+          </div> 
+          <div class="col">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">appModIndex</label>
+            <input type="text" class="form-control"  id="appModIndex" name="appModIndex" 
+            placeholder="Enter your appModIndex" required #appModIndex="ngModel" [(ngModel)]="appmod.appModIndex" >
+          </div>
+        </div>
+  
+        <div class="row">
+           <div class="col">
+            <label for="name">appModTplate</label>
+            <input type="text" class="form-control"  id="appModTplate" name="appModTplate" 
+            placeholder="Enter your appModTplate" required #appModTplate="ngModel" [(ngModel)]="appmod.appModTplate" >
+          </div>
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">appModName</label>
+            <input type="text" class="form-control"  id="appModName" name="appModName" 
+            placeholder="Enter your appModName" required #appModName="ngModel" [(ngModel)]="appmod.appModName" >
+          </div>
+
+          <div class="col">
+            <label for="name">appModImage</label>
+            <input type="text" class="form-control"  id="appModImage" name="appModImage" 
+            placeholder="Enter your appModImage" required #appModImage="ngModel" [(ngModel)]="appmod.appModImage" >
+          </div>
+        </div>
+     
+        <div class="row">
+          <div class="col">
+            <label for="name">appModTxt</label>
+            <input type="text" class="form-control"  id="appModTxt" name="appModTxt" 
+            placeholder="Enter your appModTxt" required #appModTxt="ngModel" [(ngModel)]="appmod.appModTxt" >
+          </div>
+    
+          <div class="col">
+            <label for="name">appModOpt</label>
+            <input type="text" class="form-control"  id="appModOpt" name="appModOpt" 
+            placeholder="Enter your appModOpt" required #appModOpt1="ngModel" [(ngModel)]="appmod.appModOpt" >
+          </div>
+        </div>
+		
+
+		
+        <div class="row">
+          <div class="col" >
+            <label for="name">appModAgree</label>
+            <input type="text" class="form-control"  id="appModAgree" name="appModAgree" 
+            placeholder="Enter your appModAgree" required #appMod="ngModel" [(ngModel)]="appmod.appModAgree" >
+          </div>
+    
+          <div class="col" >
+          </div>
+        </div>
+
+
+
+      </div>		
+				
+		
+      <Br>
+      <div id="Botonera" class="container-fluid">
+        <div class="row">        
+        <div class="card">
+        <div class="card-header card-header-danger">
+            <table class="table"  >
+                <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+                <a type="button" class="btn btn-danger btn-rounded" (click)="gotoAppModDelete(appmod.id)">Delete</a>
+                <a type="button" class="btn btn-success btn-rounded" (click)="gotoAppModSave(appmod.id)">Back</a>
+            </table>    
+        </div>    
+        </div>
+        </div>
+      </div> 
+          
+      </form>
+  
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>
+  
+
+

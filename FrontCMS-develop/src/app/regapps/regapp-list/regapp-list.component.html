@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">APLICATIVOS</h4>
+                    <p class="card-category"> Actualizacion de Aplicativos</p></div>
+                    <div *ngIf="errorMessage" class="alert alert-warning">
+                        <!-- si el mensaje es cierto entonces aplico el tah HTML neste caso un div -->
+                    <strong>Warning!</strong> {{errorMessage | json}} </div>
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>
+    </div>                      
+    <div class="row">        
+    <div class="col-md-12">
+    <div class="card">
+    <div class="card-header card-header-danger">
+        <table class="table" >
+        <thead class=" text-primary">
+        <tr>
+            <!-- The scope attribute specifies whether a header cell is a header for a column, row, or group of columns or rows.
+            Note: The scope attribute has no visual effect in ordinary web browsers, but can be used by screen readers.  -->
+            <th scope="col">Id</th>
+            <th scope="col">appName</th>
+            <th scope="col">appStatus</th>
+            <th scope="col">appStaFrom</th>
+            <th scope="col">appStaTo</th>
+            <th i class="bi bi-pen"></th>
+            <th i class="bi bi-trash3" scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let regapp of regapps">
+            <td>{{ regapp.id }}</td>
+            <td>{{ regapp.appName }}</td>
+            <td>{{ regapp.appStatus }}</td>
+            <td>{{ regapp.appStaFrom }}</td>
+			<td>{{ regapp.appStaTo }}</td>
+            <td><a i class="bi bi-pen" href="regapps/{{ regapp.id }}/edit"></a></td>            
+            <td><a i class="bi bi-trash3" href="regapps/{{ regapp.id }}/delete"></a></td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+            <div class="card-body" >
+            <a  class="btn btn-primary btn-rounded"  (click)="gotoAppAdd()">New Record</a>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div> 
+    
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+  
+
+<!-- super(id);
+this.appName = appName;
+this.appStatus = appStatus;
+this.appStaFrom = appStaFrom;
+this.appStaTo = appStaTo;
+this.regAppMap = regAppMap; -->

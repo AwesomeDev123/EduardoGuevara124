@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <!-- <div class="row">         -->
+  <div class="card">
+      <div class="card-header card-header-danger">
+        <table class="table"  >
+          <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light"> -->
+            <div class="container-fluid">
+                <a id="Logo-Class"class="navbar-brand" routerLink="/home"  [routerLinkActive]="'Active'">
+                  <h1>KCMS</h1>
+                </a>
+                <button id="Hamburguer-Button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul id="Menu" class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li id="Home" class="nav-item">
+                        <a class="nav-link active" aria-current="page" routerLink="/home"  [routerLinkActive]="'Active'">Home</a>
+                      </li>
+<!--                   <li id="Link" class="nav-item">
+                        <a class="nav-link" routerLink="/link"  [routerLinkActive]="'Active'">Link</a>
+                      </li> -->
+                        <li id="Usuarios" class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" routerLink=""  [routerLinkActive]="'Active'"  
+                          id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" routerLink="users"  [routerLinkActive]="'Active'">Usuarios</a></li>
+                              <li><a class="dropdown-item" routerLink="regusers"  [routerLinkActive]="'Active'">Registro de usuarios</a></li>
+                              <li><a class="dropdown-item" routerLink="regpays"  [routerLinkActive]="'Active'">Pago registro de usuarios</a></li>
+                              <li><a class="dropdown-item" routerLink="regapps"  [routerLinkActive]="'Active'">Applicativos</a></li>
+                              <li><a class="dropdown-item" routerLink="apptxts"  [routerLinkActive]="'Active'">Textos</a></li>
+                              <li><a class="dropdown-item" routerLink="apptplts"  [routerLinkActive]="'Active'">Templates</a></li>
+                              <li><a class="dropdown-item" routerLink="appopts"  [routerLinkActive]="'Active'">Opciones</a></li>
+                              <li><a class="dropdown-item" routerLink="appmods"  [routerLinkActive]="'Active'">Modules</a></li>
+                              <li><a class="dropdown-item" routerLink="appimgs"  [routerLinkActive]="'Active'">Imagenes</a></li>
+                              <li><a class="dropdown-item" routerLink="appuploads"  [routerLinkActive]="'Active'">Uploads</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                            </ul>
+                        </li>
+                      <li id="Disabled" class="nav-item">
+                        <a class="nav-link disabled" routerLink=""  [routerLinkActive]="'Active'" tabindex="-1" aria-disabled="true">Disabled</a>
+                      </li>
+                    </ul>
+                  <form id="Search"class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary btn-rounded" type="submit">Search</button>
+                  </form>
+                </div>
+            </div>
+          </nav>            
+        </table>    
+      </div>    
+  </div>
+  <hr> 
+  </div>
+<!-- </div>  -->

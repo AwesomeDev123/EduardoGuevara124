@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'apps')}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of Apps</title>
+</head>
+<body>
+<!--/*@thymesVar id="app" type="spring.sfgapp.entity.User"*/-->
+<h2>Apps</h2>
+
+<table id="apps" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="regapp : ${regapps}">
+        <td th:text="${reg_app_name + ' ' + reg_app_status}"></td>
+     </tr>
+    <tr>
+        <td><a th:href="@{{id}/edit(id=${id})}" class="btn btn-default">Edit User</a>
+        <td><a th:href="@{new}" class="btn btn-default">Add New Regsitry</a>
+        <td><a th:href="@{{id}/delete(id=${id})}">Delete</a></td>
+    </tr>
+    <tr>
+        <td><a href="#" th:href="@{'/regapps/' + ${id} + '/show'}">View</a></td>
+        <td><a href="#" th:href="@{'/regapps/' + ${id} + '/update'}">Update</a></td>
+        <td><a href="#" th:href="@{'/regapps/' + ${id} + '/delete'}">Delete</a></td>
+    </tr>
+         <td><a href="#" th:href="@{'/regapps/new'}">Add App</a></td>
+
+    </tbody>
+</table>
+</body>
+</html>

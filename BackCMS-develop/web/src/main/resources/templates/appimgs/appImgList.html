@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'appimgs')}">
+
+  <body>
+
+    <h2>Images</h2>
+
+    <table id="vets" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Last Name</th>
+            <th style="width: 200px;">eMail Address</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="appimg : ${selections}">
+              <td>
+                  <a th:href="@{/appimgs/__${appimg.id}__}" th:text="${appimg.imgName}"/></a>
+              </td>
+              <td th:text="${appimg.imgName}"/></td>
+              <td th:text="${appimg.imgName}"/>
+              <td><a href="#" th:href="@{'/appimgs/' + ${appimg.id} + '/show'}">View</a></td>
+              <td><a href="#" th:href="@{'/appimgs/' + ${appimg.id} + '/update'}">Update</a></td>
+              <td><a href="#" th:href="@{'/appimgs/' + ${appimg.id} + '/delete'}">Delete</a></td>
+          </tr>
+              <td><a href="#" th:href="@{'/appimgs/new'}">Add</a></td>
+        </tbody>
+    </table>
+
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">Opciones AppImg</h4>
+                    <p class="card-category"> Registro de Opciones de AppImg</p>
+                    <p class="card-category"> Opciones de AppImg # {{appimg.id}} </p>
+                    </div>
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>
+        </div>  
+  
+    <div class="card-body">   
+      <form (ngSubmit)="onSubmit()" #appimgForm="ngForm" id="appimg" name="appimg" enctype="multipart/form-data"> 
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">Id Opciones</label>
+            <input type="text" class="form-control"  id="id" name="id" 
+            placeholder="Enter your id" required #id="ngModel" [(ngModel)]="appimg.id"
+            disabled="true" > 
+          </div> 
+          <div class="col">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">imgImp</label>
+            <input type="text" class="form-control"  id="imgImp" name="imgImp" 
+            placeholder="Enter your imgImp" required #imgImp="ngModel" [(ngModel)]="appimg.imgImp" >
+          </div>
+        </div>
+  
+        <div class="row">
+           <div class="col">
+            <label for="name">imgName</label>
+            <input type="text" class="form-control"  id="imgName" name="imgName" 
+            placeholder="Enter your imgName" required #imgName="ngModel" [(ngModel)]="appimg.imgName" >
+          </div>
+  
+    
+      <Br>
+      <div id="Botonera" class="container-fluid">
+        <div class="row">        
+        <div class="card">
+        <div class="card-header card-header-danger">
+            <table class="table"  >
+                <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+                <a type="button" class="btn btn-danger btn-rounded" (click)="gotoAppImgDelete(appimg.id)">Delete</a>
+                <a type="button" class="btn btn-success btn-rounded" (click)="gotoAppImgSave(appimg.id)">Back</a>
+            </table>    
+        </div>    
+        </div>
+        </div>
+      </div> 
+    </div>           
+      </form>
+  
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>
+  
+
+

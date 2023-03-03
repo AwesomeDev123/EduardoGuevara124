@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'apptxts')}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of App Txts</title>
+</head>
+<body>
+<!--/*@thymesVar id="apptxt" type="spring.sfgapp.entity.AppTxt"*/-->
+<h2>App Txts</h2>
+
+<table id="apptxts" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="apptxt : ${apptxts}">
+        <td th:text="${appTxtName + ' ' + appTxtName}"></td>
+     </tr>
+    </tbody>
+</table>
+</body>
+</html>

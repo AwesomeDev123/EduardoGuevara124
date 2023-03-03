@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'regapps')}">
+
+<body>
+
+  <h2>RegApps Template</h2>
+  <form th:object="${regapp}" class="form-horizontal" id="add-regapp-form" method="post">
+
+
+     <div class="form-group has-feedback">
+       <input
+         th:replace="~{fragments/inputField :: input ('Name appName', 'reg_app_name', 'text')}" />
+       <input
+         th:replace="~{fragments/inputField :: input ('Name regappstatus', 'reg_app_status', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Name regstafrom', 'reg_app_sta_from', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Name staTo', 'reg_app_sta_to', 'text')}" />
+     </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+              <button
+                      th:with="text=${regapp} ? 'Add App' : 'Update App'"
+                      class="btn btn-default" type="submit"
+                      th:text="${text}">Add     App</button>
+          </div>
+      </div>
+      <div class="col-sm-offset-2 col-sm-10">
+          <button
+                  th:with="text=${regapp['new']} ? 'Add regapp' : 'Update regapp'"
+                  class="btn btn-default" type="submit" th:text="${text}">Add
+              User</button>
+      </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">        
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <table class="table"  >
+                <tbody>
+                <div class="main-content">
+                    <div class="card-header card-header-danger" >
+                    <h4 class="card-title">Opciones AppAgree</h4>
+                    <p class="card-category"> Registro de Opciones de AppAgree</p>
+                    <p class="card-category"> Opciones de AppAgree # {{appagree.id}} </p>
+                    </div>
+                </div> 
+            </tbody>
+        </table>    
+        </div>    
+        </div>
+        </div>
+        </div>  
+  
+    <div class="card-body">   
+      <form (ngSubmit)="onSubmit()" #appagreeForm="ngForm" id="appagree" name="appagree" enctype="multipart/form-data"> 
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">Id Opciones</label>
+            <input type="text" class="form-control"  id="id" name="id" 
+            placeholder="Enter your id" required #id="ngModel" [(ngModel)]="appagree.id"
+            disabled="true" > 
+          </div> 
+          <div class="col">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">appAgreeTxt</label>
+            <input type="text" class="form-control"  id="appAgreeTxt" name="appAgreeTxt" 
+            placeholder="Enter your appAgreeTxt" required #appAgreeTxt="ngModel" [(ngModel)]="appagree.appAgreeTxt" >
+          </div>
+        </div>
+  
+        <div class="row">
+           <div class="col">
+            <label for="name">appAgreeIco</label>
+            <input type="text" class="form-control"  id="appAgreeIco" name="appAgreeIco" 
+            placeholder="Enter your appAgreeIco" required #appAgreeIco="ngModel" [(ngModel)]="appagree.appAgreeIco" >
+          </div>
+  
+        <div class="row">
+          <div class="col">
+            <label for="name">appRecomTxt</label>
+            <input type="text" class="form-control"  id="appRecomTxt" name="appRecomTxt" 
+            placeholder="Enter your appRecomTxt" required #appRecomTxt="ngModel" [(ngModel)]="appagree.appRecomTxt" >
+          </div>
+
+          <div class="col">
+            <label for="name">appAgreeImg</label>
+            <input type="text" class="form-control"  id="appAgreeImg" name="appAgreeImg" 
+            placeholder="Enter your appAgreeImg" required #appAgreeImg="ngModel" [(ngModel)]="appagree.appAgreeImg" >
+          </div>
+        </div>
+     
+        <div class="row">
+          <div class="col">
+            <label for="name">appRecomImg</label>
+            <input type="text" class="form-control"  id="appRecomImg" name="appRecomImg" 
+            placeholder="Enter your appRecomImg" required #appRecomImg="ngModel" [(ngModel)]="appagree.appRecomImg" >
+          </div>
+    
+          <div class="col">
+            <label for="name">appRecomIco</label>
+            <input type="text" class="form-control"  id="appRecomIco" name="appRecomIco" 
+            placeholder="Enter your appRecomIco" required #appRecomIco1="ngModel" [(ngModel)]="appagree.appRecomIco" >
+          </div>
+        </div>
+		
+      <Br>
+      <div id="Botonera" class="container-fluid">
+        <div class="row">        
+        <div class="card">
+        <div class="card-header card-header-danger">
+            <table class="table"  >
+                <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+                <a type="button" class="btn btn-danger btn-rounded" (click)="gotoAppAgreeDelete(appagree.id)">Delete</a>
+                <a type="button" class="btn btn-success btn-rounded" (click)="gotoAppAgreeSave(appagree.id)">Back</a>
+            </table>    
+        </div>    
+        </div>
+        </div>
+      </div> 
+    </div> 
+          
+      </form>
+  
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>
+  
+
+

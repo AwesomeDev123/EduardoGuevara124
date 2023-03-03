@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: sfg-app-data
+Implementation-Version: 0.0.5-SNAPSHOT
+Built-By: Beny
+Implementation-Vendor-Id: sfg.springframework
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/sfg-app/sfg-app-data
+Created-By: Maven Integration for Eclipse
+

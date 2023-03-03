@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'regusers')}">
+
+<body>
+
+  <h2>RegUser Template</h2>
+  <form th:object="${reguser}" class="form-horizontal" id="add-reguser-form" method="post">
+
+
+     <div class="form-group has-feedback">
+       <input
+         th:replace="~{fragments/inputField :: input ('Name idApp', 'idApp', 'text')}" />
+       <input
+         th:replace="~{fragments/inputField :: input ('Name idCountry', 'idCountry', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Name idUser', 'idUser', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Name userFrom', 'userFrom', 'text')}" />
+
+      <input
+        th:replace="~{fragments/inputField :: input ('Name userTo', 'userTo', 'text')}" />
+    </div>
+
+  </form>
+</body>
+</html>

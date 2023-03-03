@@ -1,0 +1,189 @@
+<!doctype html>
+<html th:fragment="layout (template, menu)">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CMS | Content System Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </head>
+
+<body>
+<nav class="navbar navbar-dark bg-primary">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">CONTENT MANAGEMENT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="navbar-text" id="users">>
+          <span>MANAGE USERS</span>
+            <ul>
+                <li th:replace="::menuItem ('/users/list','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List  User')"></li>
+            </ul>
+        </li>
+              <li  class="navbar-text" id="registers">
+                  <span class="navbar-text"></span>
+                  <span>REGISTERS</span>
+                  <ul>
+                      <li th:replace="::menuItem ('/regusers','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List User Registry')"></li>
+                  </ul>
+                  <ul>
+                      <li th:replace="::menuItem ('/regpays','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List Pay  Registry')"></li>
+                  </ul>
+                  <ul>
+                      <li th:replace="::menuItem ('/regapps','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App Registry')"></li>
+                  </ul>
+              </li>
+              <li  class="navbar-text" id="aplicativos">
+                  <span class="navbar-text"></span>
+                  <span>APLICATIVOS</span>
+                  <ul>
+                      <li th:replace="::menuItem ('/apptplates','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App Templates')"></li>
+                  </ul>
+                  <ul>
+                      <li th:replace="::menuItem ('/appmods','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App  Modules')"></li>
+                  </ul>
+                  <ul>
+                      <li th:replace="::menuItem ('/appopts','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App Options')"></li>
+                  </ul>
+              </li>
+              <li  class="navbar-text" id="impressions">
+              <span class="navbar-text">
+                IMPRESIONS
+              </span>
+                  <ul>
+                      <li class="nav-item" th:replace="::menuItem ('/appimgs','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App Images')"></li>
+                  </ul>
+                  <ul>
+                      <li class="nav-item" th:replace="::menuItem ('/apptxts','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App Texts')"></li>
+                  </ul>
+              </li>
+              <li  class="navbar-text" id="tables">
+              <span class="navbar-text">
+                TABLES
+              </span>
+                  <ul>
+                      <li class="nav-item" th:replace="::menuItem ('/apptbls','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','List App Tables')"></li>
+                  </ul>
+              </li>
+      </ul>
+      <span class="navbar-text">
+        Todos los derechos reservados.
+      </span>
+    </div>
+  </div>
+</nav>
+
+  <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+<!--          <div class="navbar-header">
+              <a class="navbar-brand" th:href="@{/}"><span></span></a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+                  <span class="sr-only"><os-p>USUARIO TIPO <MOBILETT></MOBILETT></os-p></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>-->
+          <div class="navbar-collapse collapse" id="main-navbar">
+              <ul class="nav navbar-nav navbar-right">
+  
+                  <li th:fragment="menuItem (path,active,title,glyph,text)" class="active" th:class="${active==menu ? 'active' : ''}">
+                      <a th:href="@{__${path}__}" th:title="${title}">
+                        <span th:class="'glyphicon  glyphicon-'+${glyph}" class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <span th:text="${text}">Template</span>
+                      </a>
+                  </li>
+  
+                  <li th:replace="::menuItem ('/','home','home page','home','Home')">
+                      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                      <span>Home</span>
+                  </li>
+
+                  <li >
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>USERS</span>
+                      <ul>
+                          <li th:replace="::menuItem ('/users','usuarios','Mensaje despliegue A','mostrar usuarios','USUARIOS')">USUARIOS</li>
+                      </ul>
+                  </li>
+				   <li >
+                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                       <span>REGISTERS</span>
+                       <ul>
+                       <li th:replace="::menuItem ('/regusers','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','REGISTRY USER')">REGISTRY USER</li>
+                       </ul>
+					   <ul>
+                       <li th:replace="::menuItem ('/regpays','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','REGISTRY PAY')">REGISTRY PAY</li>
+                       </ul>
+					   <ul>
+                       <li th:replace="::menuItem ('/regapps','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','REGISTRY APP')">REGISTRY APP</li>
+					  </ul>
+                   </li>
+                  <li >
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>APLICATIVOS</span>
+                      <ul>
+		                  <li th:replace="::menuItem ('/apptplates','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','APP TEMPLATES')">APP TEMPLATES</li>
+                      </ul>
+					  <ul>
+                          <li th:replace="::menuItem ('/appmods','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','APP MODULE')">APP MODULE</li>
+                      </ul>
+					  <ul>
+                          <li th:replace="::menuItem ('/appopts','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','APP OPTIONS')">APP OPTIONS</li>
+                      </ul>
+					  <ul>
+                          <li th:replace="::menuItem ('/apptxts','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','APP TEXTS')">APP TEXTS</li>
+					  </ul>
+                  </li>
+				  <li >
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>IMPRESIONS</span>
+                      <ul>
+		                  <li th:replace="::menuItem ('/appimgs','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','IMP IMAGENES')">IMP IMAGENES</li>
+                      </ul>
+					  <ul>
+                          <li th:replace="::menuItem ('/apptxts','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','IMP TEXTOS')">IMP TEXTOS</li>
+                      </ul>
+                  </li>		  
+
+                  <li >
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>TABLES</span>
+					  <ul>
+                          <li th:replace="::menuItem ('/apptxts','aplicativos','Mensaje despliegue Aps','mostrar aplicativos','COUNTRIES')">COUNTRIES</li>
+                      </ul>
+                  </li>
+
+                  <li >
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>ERRORS</span>
+                  </li>
+  
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <div class="container-fluid">
+      <div class="container xd-container">
+          <th:block th:include="${template}"/>
+        <br/>
+        <br/>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <img src="![](../images/CMS_logo.jpg)"
+                alt="Sponsor by Better Life Applications"/></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

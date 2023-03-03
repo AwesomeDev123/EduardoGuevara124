@@ -1,0 +1,113 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">        
+      <div class="col-md-12">
+      <div class="card">
+          <div class="card-header card-header-danger">
+              <table class="table"  >
+              <tbody>
+              <div class="main-content">
+                  <div class="card-header card-header-danger" >
+                  <h4 class="card-title">APLICACIONES DE USUARIOS.</h4>
+                  <p class="card-category"> Registro de Aplicaciones de Usuarios</p>
+                  <p class="card-category"> Aplicaciones Usuario # {{reguser.idUser}} </p>
+                  </div>
+              </div> 
+          </tbody>
+      </table>    
+      </div>    
+      </div>
+      </div>
+  </div>  
+
+  <div class="card-body">   
+    <form (ngSubmit)="onSubmit()" #reguserForm="ngForm" id="reguser" name="reguser"> 
+
+      <div class="row">
+        <div class="col">
+          <label for="name">Id User</label>
+          <input type="text" class="form-control"  id="idUser" name="idUser" 
+          placeholder="Enter your idUser" required #idUser="ngModel" [(ngModel)]="reguser.idUser"
+          disabled="true" > 
+        </div> 
+        <div class="col">
+        <label for="IdApp">Property Type</label>
+          <select class="form-control" id="idApp" name="idApp"  [(ngModel)]="reguser.idApp" >
+            <option [ngValue]="null">Select one...</option>
+            <option *ngFor="let idApp of eApplications | keyvalue" [ngValue]="idApp.value">{{idApp.value}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+        <label for="name">regAppName</label>
+        <input type="text" class="form-control"  id="regAppName" name="regAppName" 
+        placeholder="Enter your regAppName" required #regAppName="ngModel" [(ngModel)]="reguser.regAppName" >
+      </div>
+
+      <div class="col">
+        <label for="idCountry">Country</label>
+        <!-- <select id="idApp" name="idApp" [formControl]="idApp"> -->
+          <select class="form-control" id="idCountry" name="idCountry"  [(ngModel)]="reguser.idCountry" >
+          <option [ngValue]="null">Select one...</option>
+          <option *ngFor="let idCountry of eUserCountry | keyvalue" [ngValue]="idCountry.value">{{idCountry.value}}</option>
+        </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+        <label for="name">regUserName</label>
+        <input type="text" class="form-control"  id="regUserName" name="regUserNamePAy" 
+        placeholder="Enter your regUserName" required #regUserName="ngModel" [(ngModel)]="reguser.regUserName" >
+      </div>
+      <div class="col">
+        <label for="idCountry">User Status</label>
+        <!-- <select id="idApp" name="idApp" [formControl]="idApp"> -->
+          <select class="form-control" id="regUserStatus" name="regUserStatus"  [(ngModel)]="reguser.regUserStatus" >
+          <option [ngValue]="null">Select one...</option>
+          <option *ngFor="let regUserStatus of eUserStatus | keyvalue" [ngValue]="regUserStatus.value">{{regUserStatus.value}}</option>
+        </select>
+        </div>
+      </div>
+   
+      <div class="row">
+              <div class="col">
+              <label for="name">Registro desde</label>
+              <input type="text" class="form-control"  id="regUserFrom" name="regUserFrom" 
+              placeholder="mm-dd-yyyy" required #regUserFrom="ngModel" [(ngModel)]="reguser.regUserFrom" >
+            </div>
+
+            <div class="col">
+              <label for="name">Registro hasta</label>
+              <input type="text" class="form-control"  id="regUserTo" name="regUserTo" 
+              placeholder="mm-dd-yyyy"  required #regUserTo="ngModel" [(ngModel)]="reguser.regUserTo" >
+            </div>
+      </div>
+    <Br>
+    <div id="Botonera" class="container-fluid">
+      <div class="row">        
+      <div class="card">
+          <div class="card-header card-header-danger">
+            <table class="table"  >
+        <!-- <button type="submit" [disabled]="!reguserForm.form.valid" class="btn btn-info">Actualizar</button> -->
+        <button type="submit" class="btn btn-primary btn-rounded" >Actualizar</button>
+        <!-- <a type="button" class="btn btn-secondary btn-rounded" (click)="gotoRegUserPay(reguser.id,reguser.idUser)">Pagos</a> -->
+        <a type="button" class="btn btn-danger btn-rounded" (click)="gotoRegUserDelete(reguser.id,reguser.idUser)">Delete</a>
+        <!-- <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegUserList(reguser.id)">Back</a>  -->
+        <a type="button" class="btn btn-success btn-rounded" (click)="gotoRegUserSave(reguser.id,reguser.idUser)">Back</a>
+      </table>    
+    </div>    
+    </div>
+    </div>
+    </div> 
+        
+    </form>
+
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+</div>

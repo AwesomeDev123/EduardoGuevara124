@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'regusers')}">
+
+  <body>
+
+    <h2>Users</h2>
+
+    <table id="vets" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Last Name</th>
+            <th style="width: 200px;">eMail Address</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="reguser : ${selections}">
+              <td>
+                  <a th:href="@{/regusers/__${reguser.id}__}" th:text="${reguser.regAppName}"/></a>
+              </td>
+              <td th:text="${reguser.regAppName}"/></a>
+              </td>}"/></td>
+              <td th:text="${reguser.regAppName}"/></a>
+              </td>}"/>
+              <td><a href="#" th:href="@{'/regusers/' + ${reguser.id} + '/show'}">View</a></td>
+              <td><a href="#" th:href="@{'/regusers/' + ${reguser.id} + '/update'}">Update</a></td>
+              <td><a href="#" th:href="@{'/regusers/' + ${reguser.id} + '/delete'}">Delete</a></td>
+          </tr>
+              <td><a href="#" th:href="@{'/regusers/new'}">Add</a></td>
+        </tbody>
+    </table>
+
+  </body>
+</html>
